@@ -1,4 +1,4 @@
-package Practico3;
+package ListaAdyacencia;
 import java.util.*;
 
 public interface Grafo {
@@ -10,10 +10,10 @@ public interface Grafo {
 	public void  agregarArista(int verticeA, int verticeB, int peso); 
 	//agrega al grafo una nueva arista dirigida que conecta dos vértices.
 	
-	public int  obtenerVertice(int claveVertice);
+	public Vertice  obtenerVertice(int claveVertice);
 	//encuentra el vértice en el grafo con nombre claveVert.
 	
-	public ArrayList<Integer> obtenerVertices();
+	public ArrayList<Vertice> obtenerVertices();
 	
 	//devuelve la lista de todos los vértices en el grafo.
 	
@@ -24,7 +24,7 @@ public interface Grafo {
 	public boolean existeArista(int verticeA, int verticeB);
 	//devuelve true si existe una arista que conecte los vértices dados.
 	
-	public ArrayList<Integer> obtenerAdyacentes(int vertice);
+	public ArrayList<Vertice> obtenerAdyacentes(int vertice);
 	//devuelve una lista con todos los vértices alcanzables desde el dado.
 
 }

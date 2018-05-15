@@ -1,4 +1,4 @@
-package Practico3;
+package MatrizAdyacencias;
 
 import java.util.ArrayList;
 
