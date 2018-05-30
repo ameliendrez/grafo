@@ -5,10 +5,10 @@ import java.util.LinkedList;
 
 public class Vertice {
 
-	private int nombre;
+	private String nombre;
 	private LinkedList<Arista> aristas;
 	
-	public Vertice (int nombre) {
+	public Vertice (String nombre) {
 		this.nombre = nombre;
 		aristas = new LinkedList<Arista>();
 	}
@@ -17,11 +17,11 @@ public class Vertice {
 		aristas.add(arista);
 	}
 
-	public int getNombre() {
+	public String getNombre() {
 		return nombre;
 	}
 
-	public void setNombre(int nombre) {
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 	
@@ -44,6 +44,13 @@ public class Vertice {
 			adyacentes.add(arista.getDestino());
 		}
 		return adyacentes;
+	}
+	
+	public boolean equals(Vertice v) {
+		if(this.getNombre().equals(v.getNombre()))
+			return true;
+		else
+			return false;		
 	}
 	
 }

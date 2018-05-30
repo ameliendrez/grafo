@@ -14,13 +14,12 @@ public class ListaAdyacencias implements Grafo {
 	}
 
 	@Override
-	public void agregarVertice(int vertice) {
-		Vertice nuevoVertice = new Vertice(vertice);
-		vertices.add(nuevoVertice);
+	public void agregarVertice(Vertice vertice) {
+		vertices.add(vertice);
 	}
 
 	@Override
-	public void agregarArista(int verticeA, int verticeB, int peso) {
+	public void agregarArista(Vertice verticeA, Vertice verticeB, int peso) {
 		Vertice origen = this.obtenerVertice(verticeA);
 		Vertice destino = this.obtenerVertice(verticeB);
 		
@@ -34,10 +33,10 @@ public class ListaAdyacencias implements Grafo {
 	}
 
 	@Override
-	public Vertice obtenerVertice(int claveVertice) {
+	public Vertice obtenerVertice(Vertice v) {
 		for (Vertice vertice : this.vertices) {
-			if (vertice.getNombre() == claveVertice) {
-				return vertice.getVertice();
+			if (vertice.equals(v)) {
+				return vertice;
 			}
 		}
 		return null;
@@ -63,22 +62,23 @@ public class ListaAdyacencias implements Grafo {
 	}
 
 	@Override
-	public boolean existeArista(int verticeA, int verticeB) {
-		Vertice origen = this.obtenerVertice(verticeA);
-		Vertice destino = this.obtenerVertice(verticeB);
-		
-		if (origen.existeArista(destino)) {
+	public boolean existeArista(Vertice verticeA, Vertice verticeB) {
+//		Vertice origen = this.obtenerVertice(verticeA);
+//		Vertice destino = this.obtenerVertice(verticeB);
+	//abria que verificar con un hasVertice por ejemplo, si existe el vertice en el grafo	
+		if (verticeA.existeArista(verticeB)) {
 			return true;
 		}
 		return false;
 	}
 
 	@Override
-	public ArrayList<Vertice> obtenerAdyacentes(int vertice) {
+	public ArrayList<Vertice> obtenerAdyacentes(Vertice vertice) {
 		ArrayList<Vertice> adyacentes = new ArrayList<Vertice>();
-		Vertice origen = this.obtenerVertice(vertice);
-		if (origen != null) {
-			adyacentes.addAll(origen.obtenerAdyacentes());
+		//Vertice origen = this.obtenerVertice(vertice);
+		//verificar si esta el vertice aca antes, creo q el if de si es null no se tendria q hacer
+		if (vertice != null) {
+			adyacentes.addAll(vertice.obtenerAdyacentes());
 		}
 		return adyacentes;
 	}
